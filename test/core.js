@@ -105,44 +105,32 @@ describe('application logic', () => {
 
     it('creates a tally for the voted entry', () => {
       const state = Map({
-        vote: Map({
-          pair: List.of('Javascript', 'HTML5')
-        }),
-        entires: List()
+        pair: List.of('Javascript', 'HTML5')
       });
       const nextState = vote(state, 'Javascript');
       expect(nextState).to.equal(Map({
-        vote: Map({
-          pair: List.of('Javascript', 'HTML5'),
-          tally: Map({
-            'Javascript': 1
-          })
-        }),
-        entires: List()
+        pair: List.of('Javascript', 'HTML5'),
+        tally: Map({
+          'Javascript': 1
+        })
       }));
     });
 
     it('adds to existing tally for the voted entry', () => {
       const state = Map({
-        vote: Map({
-          pair: List.of('Javascript', 'HTML5'),
-          tally: Map({
-            'Javascript': 3,
-            'HTML5': 2
-          })
-        }),
-        entries: List()
+        pair: List.of('Javascript', 'HTML5'),
+        tally: Map({
+          'Javascript': 3,
+          'HTML5': 2
+        })
       });
       const nextState = vote(state, 'Javascript');
       expect(nextState).to.equal(Map({
-        vote: Map({
-          pair: List.of('Javascript', 'HTML5'),
-          tally: Map({
-            'Javascript': 4,
-            'HTML5': 2
-          })
-        }),
-        entries: List()
+        pair: List.of('Javascript', 'HTML5'),
+        tally: Map({
+          'Javascript': 4,
+          'HTML5': 2
+        })
       }));
     });
 
